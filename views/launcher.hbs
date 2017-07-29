@@ -1,0 +1,21 @@
+<form method="POST" action="http://www.aniplustv.com/purchase/Down_Checkpay.asp">
+  <input type="text" name="contentSerial" value="{{serial}}"/><br/>
+  <input type="text" name="sFlag" value="0"/><br/>
+  <input type="text" name="CheckedItems" value="{{ids}}"/><br/>
+  <input type="text" name="gubun" value="down"/><br/>
+  <input type="text" name="chk" value=""/><br/>
+  <input type="text" name="chksale" value=""/><br/>
+
+  <br/>
+  <input type="submit"/>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var f = document.querySelector('form');
+  f.submit();
+});
+</script>
+
+
+
