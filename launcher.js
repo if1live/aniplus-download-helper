@@ -17,6 +17,22 @@ function getVideoIds(doc) {
   return ids;
 }
 
+function isDownloadSupported(doc) {
+  var line = doc.querySelector('.rbtn').children[1].getAttribute('href');
+  // example
+  // javascript:goDownPay('1251', 'False', '0');
+  // javascript:goDownPay('1251', 'False', '123');
+  var t = line.replace('javascript:goDownPay(', '').replace(');', '');
+  var tokens = t.split(',');
+  for(var i = 0 ; i < tokens.length ; i++) {
+    tokens[i] = tokens[i].trim();
+  }
+  var cnt = tokens[2];
+  if(cnt == '\'0\'') {
+    return false;
+  }
+  return true;
+}
 
 app.get('/', function (req, res) {
   //res.send('Hello World!');
@@ -30,10 +46,13 @@ app.get('/', function (req, res) {
     });
     response.on('end', function() {
       const dom = new JSDOM(body);
-      var ids = getVideoIds(dom.window.document);
+      var doc = dom.window.document;
+      var ids = getVideoIds(doc);
+      var supported = isDownloadSupported(doc);
       res.render('launcher', {
         serial: serial,
-        ids: ids
+        ids: ids,
+        supported: supported,
       });
     });
   }).on('error', function (e) {

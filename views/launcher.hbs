@@ -1,19 +1,26 @@
-<form method="POST" action="http://www.aniplustv.com/purchase/Down_Checkpay.asp">
-  <input type="text" name="contentSerial" value="{{serial}}"/><br/>
-  <input type="text" name="sFlag" value="0"/><br/>
-  <input type="text" name="CheckedItems" value="{{ids}}"/><br/>
-  <input type="text" name="gubun" value="down"/><br/>
-  <input type="text" name="chk" value=""/><br/>
-  <input type="text" name="chksale" value=""/><br/>
+<dl>
+  <dt>supported</dt>
+  <dd>{{supported}}</dd>
+</dl>
 
-  <br/>
+<form method="POST" action="http://www.aniplustv.com/purchase/Down_Checkpay.asp">
+  content serial <input type="text" name="contentSerial" value="{{serial}}"/><br/>
+  ids <input type="text" name="CheckedItems" value="{{ids}}"/><br/>
+
+  <input type="hidden" name="sFlag" value="0"/>
+  <input type="hidden" name="gubun" value="down"/>
+  <input type="hidden" name="chk" value=""/>
+  <input type="hidden" name="chksale" value=""/>
+
   <input type="submit"/>
 </form>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var f = document.querySelector('form');
-  f.submit();
+  var f = document.querySelector('form'); 
+  if({{supported}}) {
+    f.submit();
+  }
 });
 </script>
 
