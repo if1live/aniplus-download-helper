@@ -28,7 +28,7 @@ function isDownloadSupported(doc) {
     tokens[i] = tokens[i].trim();
   }
   var cnt = tokens[2];
-  if(cnt == '\'0\'') {
+  if(cnt == '\'0\'' || cnt == '\'\'') {
     return false;
   }
   return true;
@@ -37,16 +37,16 @@ function isDownloadSupported(doc) {
 function getProgramInfo(doc) {
   var title = '';
   var titleElem = doc.querySelector('.tit');
-  if(titleElem.innerText != '') {
+  if(!titleElem) {
+    title = "";
+  } else if(titleElem.innerText) {
     title = titleElem.innerText;
   } else {
     title = titleElem.children[0].getAttribute('alt');
   }
 
-  var subtitle = doc.querySelector('.stit').innerText;
   return {
-    'title': title,
-    'subtitle': subtitle
+    'title': title
   };
 }
 
