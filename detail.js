@@ -83,6 +83,7 @@ function createVideoInfoPromise(serial) {
         var data = {
           serial: serial,
           ids: ids,
+          video_count: ids.length,
           supported: supported,
         };
         resolve(data);
