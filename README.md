@@ -44,6 +44,31 @@ search keyword [기어와라]
 1335    기어와라! 냐루코양 W
 ```
 
+### detail information
+
+`node detail.js <serial>`
+
+```
+$ node detail.js 1719
+{ title: '무채한의 팬텀 월드',
+  serial: '1719',
+  ids:
+   [ '16761',
+     '16798',
+     '16833',
+     '16877',
+     '16918',
+     '16944',
+     '16982',
+     '17014',
+     '17050',
+     '17091',
+     '17128',
+     '17166',
+     '17200' ],
+  supported: true }
+```
+
 ## content serial
 * example url : http://www.aniplustv.com/#/tv/program_view.asp?gCode=TV&sCode=010&contentSerial=1335
     * content serial is 1335
