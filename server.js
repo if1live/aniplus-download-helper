@@ -39,8 +39,8 @@ function getProgramInfo(doc) {
   var titleElem = doc.querySelector('.tit');
   if(!titleElem) {
     title = "";
-  } else if(titleElem.innerText) {
-    title = titleElem.innerText;
+  } else if(titleElem.textContent) {
+    title = titleElem.textContent;
   } else {
     title = titleElem.children[0].getAttribute('alt');
   }
